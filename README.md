@@ -1,2 +1,2 @@
-# laravel-react-todolist
- practice using laravel and react
+# A Laravel and React Project
+ Creating a todolist as a practice for Laravel and React
