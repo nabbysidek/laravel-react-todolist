@@ -20,3 +20,7 @@
     width: 100%;
     height: 78%;
 }
+
+.todolist-entry {
+    margin-left: 10px;
+}
