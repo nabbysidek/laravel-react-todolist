@@ -19,6 +19,7 @@ use Inertia\Inertia;
 
 Route::get('/', [TodoController::class, 'index']) ->name('todos.index');
 Route::post('/', [TodoController::class, 'store']) -> name('todos.store');
-
+Route::delete('/', [TodoController::class, 'destroy']) -> name('todos.destroy');
+Route::patch('/', [TodoController::class, 'update']) -> name('todos.update');
 
 require __DIR__.'/auth.php';

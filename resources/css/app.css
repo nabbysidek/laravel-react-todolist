@@ -8,19 +8,62 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* text-align: center; */
+    
+    font-size: 18px;
 }
 
 .create-new-container {
     width: 600px;
-    padding: 20px 20px;
+    padding: 20px 20px 0 20px;
+    border: 1px solid #F1F3F4;
 }
 
 .add-button {
     width: 100%;
-    height: 78%;
+    height: 100%;
 }
 
-.todolist-entry {
+.todos-item-container {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+}
+
+.todos-item-entry {
+    margin-top: 20px;
     margin-left: 10px;
+}
+
+.todos-actionable-btns {
+    margin-top: 15px;
+    height: 35px;
+}
+
+.edit-btn {
+    border-color: #FFC107 !important;
+    background-color: #FFC107 !important;
+}
+
+.edit-btn:hover {
+    background-color: #DBA506 !important;
+}
+
+.delete-btn {
+    border-color: #DC3545 !important;
+    background-color: #DC3545 !important;
+}
+
+.delete-btn:hover {
+    background-color: #B02A37 !important;
+}
+
+@media (max-width: 767px) {
+    .todos-actionable-btns {
+        padding-left: 10px !important;
+        width: 35px;
+    }
 }
