@@ -15,12 +15,10 @@ function ToDos({ todos }) {
   const [showModal, setShowModal] = useState(false);
 
   const handleEntryChange = (event) => {
-    // Detect and respond to user interactions
     setEntry(event.target.value);
   };
 
   const handleEditEntryChange = (event) => {
-    // Detect and respond to user interactions
     setEditEntry(event.target.value);
   };
 
@@ -55,7 +53,12 @@ function ToDos({ todos }) {
   const handleSubmit = (event) => {
     event.preventDefault(); // ensure no empty input sent to the table
 
+
     if (isEditing) {
+        if(!editEntry.trim()) {
+            alert('There needs to be a value for the todo entry');
+            return;
+        }
       Inertia.patch('/', {id: editTodoId, entry: editEntry}, {
         onSuccess: () => {
           setIsEditing(false);
@@ -102,6 +105,7 @@ function ToDos({ todos }) {
                                   placeholder="Go home and sleep"
                                   value={entry}
                                   onChange={handleEntryChange}
+                                  required
                               />
                           </FloatingLabel>
                       </Col>
