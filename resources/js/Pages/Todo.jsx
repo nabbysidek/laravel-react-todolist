@@ -6,13 +6,13 @@ import { FaPen, FaTrash } from "react-icons/fa";
 function ToDos({ todos }) {
   // To create a new entry in the todo
   const [ entry, setEntry] = useState('');
-  // To evaluate whether a todo is checked or not
-  const [ checkedTodos, setCheckedTodos ] = useState([]);
   // To edit a todo entry
   const [isEditing, setIsEditing] = useState(false);
   const [editTodoId, setEditTodoId] = useState(null);
   const [editEntry, setEditEntry] = useState('');
   const [showModal, setShowModal] = useState(false);
+  // To evaluate whether a todo is checked or not
+  const [ checkedTodos, setCheckedTodos ] = useState([]);
 
   const handleEntryChange = (event) => {
     setEntry(event.target.value);
@@ -20,15 +20,6 @@ function ToDos({ todos }) {
 
   const handleEditEntryChange = (event) => {
     setEditEntry(event.target.value);
-  };
-
-  // Check whether the checkbox is checked or not
-  const handleCheckboxChange = (index) => {
-    setCheckedTodos((prevCheckedTodos) => {
-      const newCheckedTodos = [...prevCheckedTodos]; // creates a shallow copy of the array
-      newCheckedTodos[index] = ! newCheckedTodos[index]; // ensures you can check and uncheck an entry in the todo
-      return newCheckedTodos;
-    });
   };
 
   // To edit a todo entry
@@ -39,16 +30,13 @@ function ToDos({ todos }) {
     setShowModal(true);
   }
 
-  // To delete a todo entry
-  const handleDelete = (todoId) => {
-    if(window.confirm('Are you sure you want to delete the todo?')) {
-      Inertia.delete(route('todos.destroy', { id: todoId }), {
-        onSuccess: () => {
-          Inertia.reload({ only: ['todos']});
-        }
-      });
-    }
-  };
+  // To handle closing the modal
+  const handleClose = () => {
+    setShowModal(false);
+    setIsEditing(false);
+    setEditTodoId(null);
+    setEditEntry('');
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault(); // ensure no empty input sent to the table
@@ -82,13 +70,25 @@ function ToDos({ todos }) {
     }
   };
 
-  // To handle closing the modal
-  const handleClose = () => {
-    setShowModal(false);
-    setIsEditing(false);
-    setEditTodoId(null);
-    setEditEntry('');
-  }
+  // Check whether the checkbox is checked or not
+  const handleCheckboxChange = (index) => {
+    setCheckedTodos((prevCheckedTodos) => {
+      const newCheckedTodos = [...prevCheckedTodos]; // creates a shallow copy of the array
+      newCheckedTodos[index] = ! newCheckedTodos[index]; // ensures you can check and uncheck an entry in the todo
+      return newCheckedTodos;
+    });
+  };
+
+  // To delete a todo entry
+  const handleDelete = (todoId) => {
+    if(window.confirm('Are you sure you want to delete the todo?')) {
+      Inertia.delete(route('todos.destroy', { id: todoId }), {
+        onSuccess: () => {
+          Inertia.reload({ only: ['todos']});
+        }
+      });
+    }
+  };
 
   return (
       <Container className="todo-list-container">
@@ -122,7 +122,7 @@ function ToDos({ todos }) {
                       <React.Fragment key={todo.id}>
                           <Col xs={10}>
                               <div>
-                                  <input
+                              <input
                                       type="checkbox"
                                       id={`todo-${index}`}
                                       checked={checkedTodos[index] || false}

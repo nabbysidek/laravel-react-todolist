@@ -61,6 +61,10 @@ input[type="checkbox"] {
     background-color: #B02A37 !important;
 }
 
+.checked {
+    text-decoration: line-through;
+}
+
 @media (max-width: 767px) {
     .todos-actionable-btns {
         padding-left: 10px !important;
