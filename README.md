@@ -21,7 +21,8 @@
 
 ### Built with
 
-- Laravel Starter Kit with Breeze and Reactjs
+- Front-end Development: Reactjs and Bootstrap
+- Back-end Development: Laravel Starter Kit with Breeze
 
 ### What I learned
 
@@ -30,8 +31,9 @@
 
 ### Continued development
 
-- To create a toggle checked state that can be stored inside the table which later on be used to apply strikethrough the the todo entry 
+- To create a toggle checked state that can be stored inside the table. 
 
 ## Author
 
+- LinkedIn - [Nur Aina Balqis Binti Mohamad Rosidek](https://www.linkedin.com/in/nabbysidek/)
 - GitHub - [Nur Aina Balqis Binti Mohamad Rosidek](https://github.com/nabbysidek)
