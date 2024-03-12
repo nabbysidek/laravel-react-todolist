@@ -32,6 +32,7 @@
 ### Continued development
 
 - To create a toggle checked state that can be stored inside the table. 
+- To ensure that the modal can be closed and page is reload when editing.
 
 ## Author
 
