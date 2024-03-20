@@ -40,11 +40,6 @@ class TodoController extends Controller
             'entry' => $request -> input('entry')
         ]);
 
-        // $is_checked = $request -> has('is_checkbox') ? true : false ;
-        // $entry -> update ([
-        //     'is_checked' => $is_checked
-        // ]);
-
         return redirect() -> route('todos.index') -> with('success', 'The todo is updated successfully');
     }
 

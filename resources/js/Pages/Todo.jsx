@@ -18,10 +18,6 @@ function ToDos({ todos }) {
     setEntry(event.target.value);
   };
 
-  const handleEditEntryChange = (event) => {
-    setEditEntry(event.target.value);
-  };
-
   // To edit a todo entry
   const handleEdit = (todoId, entry) => {
     setIsEditing(true);
@@ -29,6 +25,10 @@ function ToDos({ todos }) {
     setEditEntry(entry);
     setShowModal(true);
   }
+
+  const handleEditEntryChange = (event) => {
+    setEditEntry(event.target.value);
+  };
 
   // To handle closing the modal
   const handleClose = () => {
